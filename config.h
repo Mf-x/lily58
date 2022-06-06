@@ -53,5 +53,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   #define ENCODER_RESOLUTION 2
   
   // Enable if encoder is on the left side
-#define ENCODER_DIRECTION_FLIP
+//#define ENCODER_DIRECTION_FLIP
 #endif
