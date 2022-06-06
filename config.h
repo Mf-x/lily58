@@ -44,3 +44,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLIGHT_ANIMATIONS
 #define RGBLIGHT_SLEEP
 */
+
+
+// Encoder
+#ifdef ENCODER_ENABLE 
+  #define ENCODERS_PAD_A { F5 }
+  #define ENCODERS_PAD_B { F4 }
+  #define ENCODER_RESOLUTION 2
+  
+  // Enable if encoder is on the left side
+#define ENCODER_DIRECTION_FLIP
+#endif
