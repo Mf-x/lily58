@@ -19,14 +19,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|   [   |    |    ]  |------+------+------+------+------+------|
  * |LShift|   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  |RShift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | LAlt | LGUI |LOWER | /Space  /       \Enter \  |RAISE |BackSP| RGUI |
+ *                   | LAlt | LGUI |LOWER | /Space  /       \BackSp\  |RAISE |Enter| RGUI |
  *                   |      |      |      |/       /         \      \ |      |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
 
  [_QWERTY] = LAYOUT(
-KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_SLSH, KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_GRV, KC_LSFT, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_LCTL, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_LBRC, KC_RBRC, KC_N, KC_M, KC_COMM, KC_DOT, KC_MINS, KC_RSFT,
-              KC_CAPS, KC_LALT, KC_RGUI, KC_SPC, KC_ENT, MO(2), KC_BSPC, MO(1)
+KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINS, KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_GRV, KC_LSFT, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_LCTL, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_LBRC, KC_BTN1, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT,
+              KC_RALT, KC_LALT, KC_RGUI, KC_SPC, KC_ENT, KC_BSPC, MO(2), MO(1)
 ),
 /* LOWER
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -43,7 +43,8 @@ KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_SLSH, KC_
  *                   `----------------------------'           '------''--------------------'
  */
 [_LOWER] = LAYOUT(
-KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_GRV, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_TILD, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, MO(3), KC_TRNS, KC_TRNS
+KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,             KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6,                                   KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_GRV, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC,                 _______, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_TILD, KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS, KC_BTN1, KC_BTN2, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE,                 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, MO(3), KC_TRNS, KC_TRNS
 
 ),
 /* RAISE
@@ -63,7 +64,10 @@ KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
 
 [_RAISE] = LAYOUT(
 
-  KC_GRV, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_VOLU, KC_F1, KC_F2, KC_TRNS, KC_F4, KC_F5, KC_F6, KC_TRNS, KC_TRNS, KC_UP, KC_TRNS, KC_BRIU, KC_MUTE, KC_LSFT, KC_F7, KC_F3, KC_F9, KC_F10, KC_F11, KC_NO, KC_LEFT, KC_DOWN, KC_RGHT, KC_BRID, KC_VOLD, KC_LCTL, KC_TRNS, KC_F8, KC_TRNS, KC_TRNS, KC_TRNS, KC_F12, KC_TRNS, KC_PLUS, KC_MINS, KC_EQL, KC_LBRC, KC_RBRC, KC_BSLS, KC_TRNS, KC_LALT, KC_LGUI, KC_SPC, KC_ENT, KC_TRNS, KC_TRNS, KC_TRNS
+  KC_GRV, KC_1, KC_2, KC_3, KC_4, KC_5,                            KC_6, KC_7, KC_8, KC_9, KC_0, KC_VOLU,
+  KC_F1, KC_F2, KC_TRNS, KC_F4, KC_F5, KC_F6,                     KC_TRNS, KC_TRNS, KC_UP, KC_TRNS, KC_BRIU, KC_MUTE,
+  KC_LSFT, KC_F7, KC_F3, KC_F9, KC_F10, KC_F11,                 KC_BTN2, KC_LEFT, KC_DOWN, KC_RGHT, KC_BRID, KC_VOLD,
+  KC_LCTL, KC_TRNS, KC_F8, KC_TRNS, KC_TRNS, KC_TRNS, KC_F12, KC_TRNS, KC_PLUS, KC_MINS, KC_EQL, KC_LBRC, KC_RBRC, KC_BSLS, KC_TRNS, KC_LALT, KC_LGUI, KC_SPC, KC_ENT, KC_TRNS, KC_TRNS, KC_TRNS
 ),
 
 /* ADJUST
@@ -138,4 +142,36 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     // set_timelog();
   }
   return true;
+}
+
+
+bool encoder_update_user(uint8_t index, bool clockwise) {
+ // on Raise layer control volume
+  if (get_mods() & MOD_MASK_ALT) {
+    if (clockwise){
+      tap_code(KC_MS_R);
+    } else{
+      tap_code(KC_MS_L);
+    }
+  }
+  else if (get_mods() & MOD_MASK_SHIFT) {
+    if (clockwise){
+      tap_code(KC_MS_U);
+    } else{
+      tap_code(KC_MS_D);
+    }
+ } else if (get_mods() & MOD_MASK_CTRL) {
+    if (clockwise){
+      tap_code(KC_RGHT);
+    } else{
+      tap_code(KC_LEFT);
+    }
+  } else {
+        if (clockwise){
+          tap_code(KC_WH_U);
+        } else {
+          tap_code(KC_WH_D);
+        }
+  }
+  return false;
 }
