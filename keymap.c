@@ -144,6 +144,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
+<<<<<<< HEAD
 
 bool encoder_update_user(uint8_t index, bool clockwise) {
  // on Raise layer control volume
@@ -175,3 +176,68 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
   }
   return false;
 }
+=======
+#ifdef ENCODER_ENABLE
+bool encoder_update_user(uint8_t index, bool clockwise) {
+    if (index == 0) { /* First encoder */
+        if (clockwise) {
+            tap_code(KC_VOLU);
+        } else {
+            tap_code(KC_VOLD);
+        }
+    } else if (index == 1) { /* Second encoder */
+        if (clockwise) {
+            tap_code(KC_VOLD);
+        } else {
+            tap_code(KC_VOLU);
+        }
+    }
+    return true;
+}
+#endif
+
+
+* Left encoder */
+  } else if (index == 1) {
+    if (IS_LAYER_ON(_FUNNAV)) { /* volume */
+      if (clockwise) {
+        tap_code(KC_VOLU);
+      } else {
+        tap_code(KC_VOLD);
+      }
+    } else if (IS_LAYER_ON(_NUMSYM)) { /* undo/redo */
+      if (clockwise) {
+          tap_code16(LCTL(KC_Y));
+      } else {
+          tap_code16(LCTL(KC_Z));
+      }
+    } else if (IS_LAYER_ON(_ADJ)) { /* app switch */
+      if (!clockwise) {
+          tabtimer = timer_read();
+          if(!tabbing) {
+              register_code(KC_LALT);
+              tabbing = true;
+          }
+          tap_code(KC_TAB);
+      } else {
+          tabtimer = timer_read();
+          if(!tabbing) {
+              register_code(KC_LALT);
+              tabbing = true;
+          }
+          register_code(KC_LSFT);
+          tap_code(KC_TAB);
+          unregister_code(KC_LSFT);
+      }
+    } else { /* BASE LAYER - character navigation */
+      if (clockwise) {
+        tap_code(KC_LEFT);
+      } else {
+        tap_code(KC_RIGHT);
+      }
+    }
+  }
+}
+
+
+>>>>>>> 3d673c1065421c90fecacfb8cf6596402612b6a2
