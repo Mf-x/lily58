@@ -159,3 +159,47 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 }
 #endif
 
+
+* Left encoder */
+  } else if (index == 1) {
+    if (IS_LAYER_ON(_FUNNAV)) { /* volume */
+      if (clockwise) {
+        tap_code(KC_VOLU);
+      } else {
+        tap_code(KC_VOLD);
+      }
+    } else if (IS_LAYER_ON(_NUMSYM)) { /* undo/redo */
+      if (clockwise) {
+          tap_code16(LCTL(KC_Y));
+      } else {
+          tap_code16(LCTL(KC_Z));
+      }
+    } else if (IS_LAYER_ON(_ADJ)) { /* app switch */
+      if (!clockwise) {
+          tabtimer = timer_read();
+          if(!tabbing) {
+              register_code(KC_LALT);
+              tabbing = true;
+          }
+          tap_code(KC_TAB);
+      } else {
+          tabtimer = timer_read();
+          if(!tabbing) {
+              register_code(KC_LALT);
+              tabbing = true;
+          }
+          register_code(KC_LSFT);
+          tap_code(KC_TAB);
+          unregister_code(KC_LSFT);
+      }
+    } else { /* BASE LAYER - character navigation */
+      if (clockwise) {
+        tap_code(KC_LEFT);
+      } else {
+        tap_code(KC_RIGHT);
+      }
+    }
+  }
+}
+
+
